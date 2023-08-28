@@ -6,6 +6,9 @@ AmpereOS is an open source operating system made by Nabir14 using x86 which is c
 Currently the operating system is only available for x86 and soon it'll be coming to x86_64 and arm CPUs.
 
 Development Chart:
+
 • Bootloader (under development)
+
 • Kernel (X)
+
 • Main (X)
