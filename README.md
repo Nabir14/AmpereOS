@@ -7,8 +7,8 @@ Currently the operating system is only available for x86 and soon it'll be comin
 
 Development Chart:
 
-• Bootloader (under development)
+• Bootloader (✓)
 
-• Kernel (X)
+• Kernel (under_developement)
 
 • Main (X)
