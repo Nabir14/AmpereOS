@@ -1,6 +1,15 @@
+sudo apt install build-essential
+sudo apt install bison
+sudo apt install flex
+sudo apt install libgmp3-dev
+sudo apt install libmpc-dev
+sudo apt install libmpfr-dev
+sudo apt install texinfo
+sudo apt install libisl-dev
+
 export CC=/usr/bin/gcc 
 export LD=/usr/bin/gcc 
-export PREFIX="/usr/local/i386elfgcc" 
+export PREFIX="$Home/cc-bin" 
 export TARGET=i386-elf
 export PATH="$PREFIX/bin:$PATH"
 
