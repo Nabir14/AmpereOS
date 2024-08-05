@@ -19,7 +19,7 @@ getsp:
 	jmp hexloop
 end:
 	mov bx, HEX_OUT
-	call printa
+	call print
 	popa
 	ret
 HEX_OUT:
