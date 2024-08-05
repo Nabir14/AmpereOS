@@ -1,7 +1,7 @@
 void test_ep(){
 }
 
-int main(){
+void main(){
 	char* vmem = (char*) 0xb8000;
-	*vmem = "[AmpereOS Kernel v0.1]";
+	*vmem = 'X';
 }

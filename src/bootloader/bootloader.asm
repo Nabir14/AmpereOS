@@ -20,7 +20,6 @@ KERNEL_OFFSET equ 0x1000
 [bits 16]
 LOAD_KERNEL:
 	mov bx, KLMSG
-	call nline
 	call print
 	call nline
 	mov bx, KERNEL_OFFSET
