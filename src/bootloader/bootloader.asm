@@ -10,12 +10,12 @@ KERNEL_OFFSET equ 0x1000
 	call swto_pm
 	jmp $
 
-%include "function_strings/bootloader_print.asm"
-%include "function_strings/bootloader_hexprint.asm"
-%include "disk/bootloader_disk.asm"
-%include "32bpm/32bgdt.asm"
-%include "32bpm/32bprint.asm"
-%include "32bpm/32bs.asm"
+%include "include/bootloader_print.asm"
+%include "include/bootloader_hexprint.asm"
+%include "include/bootloader_disk.asm"
+%include "include/32bgdt.asm"
+%include "include/32bprint.asm"
+%include "include/32bs.asm"
 
 [bits 16]
 LOAD_KERNEL:

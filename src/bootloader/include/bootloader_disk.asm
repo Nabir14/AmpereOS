@@ -13,17 +13,20 @@ load_disk:
 	jne sectors_error
 	popa
 	ret
+
 disk_error:
 	mov bx, DISK_ERROR
 	call print
-	call nline
 	mov dh, ah
 	call hexprint
 	jmp disk_loop
+
 sectors_error:
 	mov bx, SECTORS_ERROR
 	call print
+
 disk_loop:
 	jmp $
-DISK_ERROR: db "Disk error", 0
-SECTORS_ERROR: db "Sectors error", 0
+
+DISK_ERROR: db "[AmpereOS]: Disk load error ", 0
+SECTORS_ERROR: db "[AmpereOS]: Sectors error", 0
