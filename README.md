@@ -7,5 +7,3 @@ AmpereOS is an open source operating system.
 - Bootloader (✓)
 - Kernel (under_developement)
 - Main (X)
-
-[Visit Website](https://nabir14.github.io/AmpereOS/)
