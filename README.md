@@ -1,14 +1,11 @@
 # AmpereOS
-AmpereOS is an open source operating system made by Nabir14 using x86 which is currently under development.
+AmpereOS is an open source operating system.
 
-![20230804_212933_0000](https://github.com/Nabir14/AmpereOS/assets/82253045/e0134d09-3137-480b-9648-cd1b3d1b8e6d)
+![ampereos_icon](https://github.com/Nabir14/AmpereOS/ampereos_icon.png)
 
-Currently the operating system is only available for x86 and soon it'll be coming to x86_64 and arm CPUs.
-
+**Operating System Is Work In Progress**
 **Development Chart:**
-
 - Bootloader (✓)
-
 - Kernel (under_developement)
-
 - Main (X)
+
