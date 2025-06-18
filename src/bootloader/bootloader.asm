@@ -1,14 +1,14 @@
 [org 0x7c00]
 KERNEL_OFFSET equ 0x1000
-	mov [BOOT_DRIVE], dl
-	mov bp, 0x9000
-	mov sp, bp
-	mov bx, RMMSG
-	call print
-	call nline
-	call LOAD_KERNEL
-	call swto_pm
-	jmp $
+mov [BOOT_DRIVE], dl
+mov bp, 0x9000
+mov sp, bp
+mov bx, RMMSG
+call print
+call nline
+call LOAD_KERNEL
+call swto_pm
+jmp $
 
 %include "include/bootloader_print.asm"
 %include "include/bootloader_hexprint.asm"

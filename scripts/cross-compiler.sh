@@ -7,11 +7,12 @@ sudo apt install libmpfr-dev
 sudo apt install texinfo
 sudo apt install libisl-dev
 
-export PREFIX="$HOME/cross"
+export PREFIX="cross-compiler"
 export TARGET=i686-elf
 export PATH="$PREFIX/bin:$PATH"
 
-cd $HOME/src
+mkdir cross-compiler
+cd cross-compiler
 curl -O http://ftp.gnu.org/gnu/binutils/binutils-2.42.tar.gz
 tar xf binutils-2.42.tar.gz
 rm -rf binutils-2.42.tar.gz
@@ -20,7 +21,7 @@ cd build-binutils
 ../binutils-2.42/configure --target=$TARGET --enable-interwork --enable-multilib --disable-nls --disable-werror --prefix=$PREFIX 2>&1 | tee configure.log
 make all install 2>&1 | tee make.log
 
-cd $HOME/src
+cd ..
 curl -O https://ftp.gnu.org/gnu/gcc/gcc-13.3.0/gcc-13.3.0.tar.gz
 tar xf gcc-13.3.0.tar.gz
 rm -rf gcc-13.3.0.tar.gz
