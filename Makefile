@@ -11,4 +11,4 @@ build-image:
 run:
 	qemu-system-i386 -fda os-image/ampereos-dev.bin
 clean:
-	rm -rf kernel.o kernel_ep.o bootloader.bin kernel.bin
+	rm -rf ./src/kernel.o ./src/kernel_ep.o ./src/ports.o
