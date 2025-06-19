@@ -12,12 +12,14 @@ void main(){
 	int OFFSET = CURSOR_POS * 2;
 	VGA[OFFSET] = 'A';
 	VGA[OFFSET + 1] = 0x0f;
+	clear_screen(VGA);
 }
 
-/*void clea_screen(){
+void clear_screen(char* vga){
 	for(int i = 0; i < 80 * 25; i++){
-		char* vmem = (char*) VMEM_ADDR;
-		*vmem[i * 2] = ' ';
-		*vmem[(i * 2) + 1] = 0x0f;
+		//char* VGA = VGA_MEM_ADDR;
+		int OFFSET = i * 2;
+		vga[OFFSET] = ' ';
+		vga[(OFFSET+1) + 1] = 0x0f;
 	}
-}*/
+}
