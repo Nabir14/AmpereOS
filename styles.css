@@ -1,0 +1,8 @@
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+.aligned{
+    text-align: center;
+}
