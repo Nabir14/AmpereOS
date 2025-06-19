@@ -1,5 +1,0 @@
-main:
-	mov byte [VIDEO_MEM], KERNEL_TEST_MSG
-	ret
-VIDEO_MEM db 0xb8000
-KERNEL_TEST_MSG db 'X', 0
