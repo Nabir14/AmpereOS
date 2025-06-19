@@ -3,6 +3,7 @@
 #define VGA_MEM_ADDR 0xb8000
 
 void main(){
+	clear_screen();
 	char* VGA = VGA_MEM_ADDR;
 	IO_BYTE_WRITE(0x3d4, 14);
 	int CURSOR_POS = IO_BYTE_READ(0x3d5);
@@ -12,14 +13,13 @@ void main(){
 	int OFFSET = CURSOR_POS * 2;
 	VGA[OFFSET] = 'A';
 	VGA[OFFSET + 1] = 0x0f;
-	clear_screen(VGA);
 }
 
-void clear_screen(char* vga){
+void clear_screen(){
 	for(int i = 0; i < 80 * 25; i++){
-		//char* VGA = VGA_MEM_ADDR;
+		char* VGA = VGA_MEM_ADDR;
 		int OFFSET = i * 2;
-		vga[OFFSET] = ' ';
-		vga[(OFFSET+1) + 1] = 0x0f;
+		VGA[OFFSET] = ' ';
+		VGA[OFFSET+1] = 0x0f;
 	}
 }
