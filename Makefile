@@ -8,6 +8,6 @@ compile-kernel:
 build-image:
 	cat bootloader.bin kernel.bin > ./os-image/ampereos-dev.bin
 run:
-	qemu-system-i386 -fda images/amepereos-dev.bin
-#clean:
-#rm -rf kernel.o kernel_ep.o bootloader.bin kernel.bin
+	qemu-system-i386 -fda os-image/ampereos-dev.bin
+clean:
+	rm -rf kernel.o kernel_ep.o bootloader.bin kernel.bin
