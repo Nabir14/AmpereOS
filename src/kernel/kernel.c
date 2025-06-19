@@ -1,4 +1,4 @@
-#include "./drivers/ports.h"
+#include "drivers/ports.h"
 
 #define VGA_MEM_ADDR 0xb8000
 
