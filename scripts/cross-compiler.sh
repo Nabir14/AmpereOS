@@ -7,7 +7,7 @@ sudo apt install libmpfr-dev
 sudo apt install texinfo
 sudo apt install libisl-dev
 
-export PREFIX="cross-compiler"
+export PREFIX="/workspaces/AmpereOS/scripts/cross-compiler"
 export TARGET=i686-elf
 export PATH="$PREFIX/bin:$PATH"
 
