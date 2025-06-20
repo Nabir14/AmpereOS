@@ -22,11 +22,11 @@ void AMPEREK_SET_CURSOR_OFFSET(int offset){
 }
 
 void AMPEREK_TEXT_MODE_CLEAR(){
+    unsigned char* VGA = (unsigned char*) VGA_MEM_ADDR;
 	for(int i = 0; i < MAX_COL * MAX_ROW; i++){
-		char* VGA = (char*) VGA_MEM_ADDR;
 		int offset = i * 2;
 		VGA[offset] = ' ';
-		VGA[offset+1] = 0x0f;
+		VGA[offset+1] = WHITE_TEXT;
 	}
 	AMPEREK_SET_CURSOR_OFFSET(vga_offset(0, 0));
 }
@@ -73,7 +73,7 @@ void AMPEREK_PRINT_AT_CURSOR(char* str, char attrib){
 	int row = vga_row(offset);
 	int i = 0;
 	while(str[i] != 0){
-        	offset = AMPEREK_PRINT_CHAR(str[i++], col, row, attrib);
+        offset = AMPEREK_PRINT_CHAR(str[i++], col, row, attrib);
 		col = vga_col(offset);
 		row = vga_row(offset);	
 	}

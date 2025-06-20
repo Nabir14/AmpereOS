@@ -12,4 +12,4 @@ build-image:
 run:
 	qemu-system-i386 -hda os-image/ampereos-dev.bin
 clean:
-	rm -rf ./src/kernel.o ./src/kernel_ep.o ./src/ports.o ./src/io-text.o
+	rm -rf ./src/kernel.o ./src/kernel_ep.o ./src/io-ports.o ./src/io-text.o
