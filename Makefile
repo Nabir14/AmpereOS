@@ -10,6 +10,6 @@ cc-compile-kernel:
 build-image:
 	cat bootloader.bin kernel.bin > ./os-image/ampereos-dev.bin
 run:
-	qemu-system-i386 -fda os-image/ampereos-dev.bin
+	qemu-system-i386 -hda os-image/ampereos-dev.bin
 clean:
 	rm -rf ./src/kernel.o ./src/kernel_ep.o ./src/ports.o ./src/io-text.o
