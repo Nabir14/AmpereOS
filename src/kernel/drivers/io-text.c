@@ -68,14 +68,9 @@ void AMPEREK_PRINT(char* str, int col, int row, char attrib){
 }
 
 void AMPEREK_PRINT_AT_CURSOR(char* str, char attrib){
-	int offset = AMPEREK_GET_CURSOR_OFFSET();
-	int col = vga_col(offset);
-	int row = vga_row(offset);
 	int i = 0;
 	while(str[i] != 0){
-        offset = AMPEREK_PRINT_CHAR(str[i++], col, row, attrib);
-		col = vga_col(offset);
-		row = vga_row(offset);	
+        AMPEREK_PRINT_CHAR(str[i++], -1,-1, attrib);
 	}
 }
 
