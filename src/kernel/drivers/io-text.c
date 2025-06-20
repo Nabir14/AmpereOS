@@ -23,10 +23,10 @@ void AMPEREK_SET_CURSOR_OFFSET(int offset){
 
 void AMPEREK_TEXT_MODE_CLEAR(){
 	for(int i = 0; i < MAX_COL * MAX_ROW; i++){
-		unsigned char* VGA = (unsigned char*) VGA_MEM_ADDR;
+		char* VGA = (char*) VGA_MEM_ADDR;
 		int offset = i * 2;
 		VGA[offset] = ' ';
-		VGA[offset+1] = WHITE_TEXT;
+		VGA[offset+1] = 0x0f;
 	}
 	AMPEREK_SET_CURSOR_OFFSET(vga_offset(0, 0));
 }
