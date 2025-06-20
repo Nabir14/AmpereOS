@@ -1,13 +1,22 @@
 #include "io-ports.h"
 #include "io-text.h"
 
-int vga_offset(int col, int row){}
-    
-void AMPEREK_PRINT(char* str, int col, int row){
+int vga_offset(int col, int row);
+
+void AMPEREK_TEXT_MODE_CLEAR(){
+	for(int i = 0; i < MAX_COL * MAX_ROW; i++){
+		char* VGA = VGA_MEM_ADDR;
+		int offset = i * 2;
+		VGA[offset] = ' ';
+		VGA[offset+1] = 0x0f;
+	}
+}
+
+void AMPEREK_PRINT(char* str, int col, int row, int attrib){
     int offset = vga_offset(col, row);
     int i = 0;
     while(str[i] != "0"){
-        offset = AMPEREK_PRINT_CHAR(str[i++], col, row, WHITE_TEXT);
+        offset = AMPEREK_PRINT_CHAR(str[i++], col, row, atrrib);
     }
 }
 
@@ -34,6 +43,8 @@ int AMPEREK_PRINT_CHAR(char c, int col, int row, int attrib){
     AMPEREK_SET_CURSOR_OFFSET(offset);
     return offset;
 }
+
+int AMPEREK_GET_CURSOR_OFFSET(){}
 
 void AMPEREK_SET_CURSOR_OFFSET(int offset){
     offset /= 2;

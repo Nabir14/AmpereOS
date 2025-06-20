@@ -4,6 +4,7 @@
 #define WHITE_TEXT 0x0f
 #define RED_TEXT 0xf4
 
-void VGA_CLEAR();
+void AMPEREK_TEXT_MODE_CLEAR();
 void AMPEREK_PRINT(char* string, int col, int row);
 void AMPEREK_PRINT_AT_CURSOR(char* string);
+void AMPEREK_PRINT_CHAR(char c, int col, int row, int attrib);
