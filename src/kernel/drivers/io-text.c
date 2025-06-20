@@ -26,7 +26,7 @@ void AMPEREK_TEXT_MODE_CLEAR(){
 		char* VGA = VGA_MEM_ADDR;
 		int offset = i * 2;
 		VGA[offset] = ' ';
-		VGA[offset+1] = 0x0f;
+		VGA[offset+1] = BLACK_TEXT;
 	}
 	AMPEREK_SET_CURSOR_OFFSET(vga_offset(0, 0));
 }

@@ -3,6 +3,10 @@
 #define MAX_ROW 25
 #define WHITE_TEXT 0x0f
 #define RED_TEXT 0xf4
+#define CYAN_TEXT 0x0b
+#define BLACK_TEXT 0xf0
+#define WHITE_SPACE 0xff
+#define BLACK_SPACE 0x0
 
 void AMPEREK_TEXT_MODE_CLEAR();
 void AMPEREK_PRINT(char* string, int col, int row, char attrib);
