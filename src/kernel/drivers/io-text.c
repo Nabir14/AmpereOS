@@ -12,19 +12,17 @@ void AMPEREK_TEXT_MODE_CLEAR(){
 	}
 }
 
-void AMPEREK_PRINT(char* str, int col, int row, int attrib){
+void AMPEREK_PRINT(char* str, int col, int row, char attrib){
     int offset = vga_offset(col, row);
     int i = 0;
     while(str[i] != "0"){
-        offset = AMPEREK_PRINT_CHAR(str[i++], col, row, atrrib);
+        offset = AMPEREK_PRINT_CHAR(str[i++], col, row, attrib);
     }
 }
 
-void AMPEREK_PRINT_AT_CURSOR(char* str){
+//voidld AMPEREK_PRINT_AT_CURSOR(char* str){}
 
-}
-
-int AMPEREK_PRINT_CHAR(char c, int col, int row, int attrib){
+int AMPEREK_PRINT_CHAR(char c, int col, int row, char attrib){
     unsigned char* VGA = (unsigned char*) VGA_MEM_ADDR;
     if(col >= MAX_COL || row >= MAX_ROW){
         VGA[2*(MAX_COL)*(MAX_ROW)-2] = 'X';
@@ -33,18 +31,18 @@ int AMPEREK_PRINT_CHAR(char c, int col, int row, int attrib){
     }
     int offset = vga_offset(col, row);
 
-    if(c =="/n"){
+    if(c == '\n'){
         offset = vga_offset(0, row+1);
     }else{
         VGA[offset] = c;
-        VGA[offset+1] = WHITE_TEXT;
+        VGA[offset+1] = attrib;
         offset+=2;
     }
     AMPEREK_SET_CURSOR_OFFSET(offset);
     return offset;
 }
 
-int AMPEREK_GET_CURSOR_OFFSET(){}
+//int AMPEREK_GET_CURSOR_OFFSET(){}
 
 void AMPEREK_SET_CURSOR_OFFSET(int offset){
     offset /= 2;
