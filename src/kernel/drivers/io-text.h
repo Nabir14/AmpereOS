@@ -6,5 +6,7 @@
 
 void AMPEREK_TEXT_MODE_CLEAR();
 void AMPEREK_PRINT(char* string, int col, int row, char attrib);
-//void AMPEREK_PRINT_AT_CURSOR(char* string);
+void AMPEREK_PRINT_AT_CURSOR(char* string);
 int AMPEREK_PRINT_CHAR(char c, int col, int row, char attrib);
+int AMPEREK_GET_CURSOR_OFFSET();
+void AMPEREK_SET_CURSOR_OFFSET();
