@@ -5,8 +5,8 @@
 int vga_offset(int col, int row);
 int vga_row(int offset);
 int vga_col(int offset);
-void scroll_down();
-void scroll_up();
+void vga_scroll_down();
+void vga_scroll_up();
 
 int AMPEREK_GET_CURSOR_OFFSET(){
 	IO_BYTE_WRITE(IO_WRITE, 14);
@@ -57,8 +57,8 @@ int AMPEREK_PRINT_CHAR(char c, int col, int row, char attrib){
         offset+=2;
     }
 
-    if(offset => MAX_ROW * 2){
-    	scroll_down();
+    if(offset >= MAX_ROW * 2){
+    	vga_scroll_down();
 	offset -=  MAX_COL * 2;
 
     }
@@ -94,9 +94,9 @@ int vga_col(int offset){
 	return (offset - (vga_row(offset) * 2 * MAX_COL))/2;
 }
 
-void scroll_down(){
-	for(int i; i < MAX_ROWS; i++){
-		mcopy(vga_offset(0, i) + VGA_MEM_ADDR, vga_offset(0, i-1)+ VGA_MEM_ADDR, MAX_COL * 2);
+void vga_scroll_down(){
+	for(int i = 0; i < MAX_ROW; i++){
+		mcopy(vga_offset(0, i) + VGA_MEM_ADDR, vga_offset(0, i-1) + VGA_MEM_ADDR, MAX_COL * 2);
 	}
 //	char *last_line = vga_offset(0, MAX_ROW - 1) + VGA_MEM_ADDR;
 //	for(int i = 0; i < MAX_COLS * 2; i++){
@@ -104,8 +104,8 @@ void scroll_down(){
 //	}
 }
 
-void scroll_up(){
-	for(int i; i < MAX_ROWS; i++){
+void vga_scroll_up(){
+	for(int i = 0; i < MAX_ROW; i++){
 		mcopy(vga_offset(0, i) + VGA_MEM_ADDR, vga_offset(0, i+1) + VGA_MEM_ADDR, MAX_COL * 2);
 	}	
 }
