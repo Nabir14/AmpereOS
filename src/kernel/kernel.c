@@ -11,6 +11,6 @@ void AMPEREK_INIT(){
 void AMPEREK_MAIN(){
 	AMPEREK_INIT();
 	for(int i = 0; i < 1024; i++){
-		AMPEREK_PRINT("y", 0, i, WHITE_TEXT);
+		AMPEREK_PRINT("y\n", 0, 128, WHITE_TEXT);
 	}
 }

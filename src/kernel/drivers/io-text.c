@@ -98,10 +98,11 @@ void vga_scroll_down(){
 	for(int i = 0; i < MAX_ROW; i++){
 		mcopy(vga_offset(0, i) + VGA_MEM_ADDR, vga_offset(0, i-1) + VGA_MEM_ADDR, MAX_COL * 2);
 	}
-//	char *last_line = vga_offset(0, MAX_ROW - 1) + VGA_MEM_ADDR;
-//	for(int i = 0; i < MAX_COLS * 2; i++){
-//		last_line[i] = ' ';
-//	}
+/*	char *last_line = vga_offset(0, MAX_ROW - 1) + VGA_MEM_ADDR;
+	for(int i = 0; i < MAX_COLS * 2; i++){
+		last_line[i] = ' ';
+	}
+*/
 }
 
 void vga_scroll_up(){
