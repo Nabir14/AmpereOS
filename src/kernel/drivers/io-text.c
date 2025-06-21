@@ -1,9 +1,12 @@
 #include "io-ports.h"
 #include "io-text.h"
+#include "../libc/mem.h"
 
 int vga_offset(int col, int row);
 int vga_row(int offset);
 int vga_col(int offset);
+void scroll_down();
+void scroll_up();
 
 int AMPEREK_GET_CURSOR_OFFSET(){
 	IO_BYTE_WRITE(IO_WRITE, 14);
@@ -53,6 +56,13 @@ int AMPEREK_PRINT_CHAR(char c, int col, int row, char attrib){
         VGA[offset+1] = attrib;
         offset+=2;
     }
+
+    if(offset => MAX_ROW * 2){
+    	scroll_down();
+	offset -=  MAX_COL * 2;
+
+    }
+
     AMPEREK_SET_CURSOR_OFFSET(offset);
     return offset;
 }
@@ -82,4 +92,20 @@ int vga_row(int offset){
 }
 int vga_col(int offset){
 	return (offset - (vga_row(offset) * 2 * MAX_COL))/2;
+}
+
+void scroll_down(){
+	for(int i; i < MAX_ROWS; i++){
+		mcopy(vga_offset(0, i) + VGA_MEM_ADDR, vga_offset(0, i-1)+ VGA_MEM_ADDR, MAX_COL * 2);
+	}
+//	char *last_line = vga_offset(0, MAX_ROW - 1) + VGA_MEM_ADDR;
+//	for(int i = 0; i < MAX_COLS * 2; i++){
+//		last_line[i] = ' ';
+//	}
+}
+
+void scroll_up(){
+	for(int i; i < MAX_ROWS; i++){
+		mcopy(vga_offset(0, i) + VGA_MEM_ADDR, vga_offset(0, i+1) + VGA_MEM_ADDR, MAX_COL * 2);
+	}	
 }
