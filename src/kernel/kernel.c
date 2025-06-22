@@ -10,7 +10,7 @@ void AMPEREK_INIT(){
 
 void AMPEREK_MAIN(){
 	AMPEREK_INIT();
-	for(int i = 0; i < 128; i++){
+	for(int i = 0; i < 5; i++){
 		AMPEREK_PRINT_AT_CURSOR("y\n", WHITE_TEXT);
 	}
 	return;
