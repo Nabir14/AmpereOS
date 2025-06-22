@@ -57,7 +57,7 @@ int AMPEREK_PRINT_CHAR(char c, int col, int row, char attrib){
         offset+=2;
     }
 
-    if(offset >= MAX_ROW * 2){
+    if(offset >= MAX_COL * MAX_ROW * 2){
     	vga_scroll_down();
 	offset -=  MAX_COL * 2;
 
