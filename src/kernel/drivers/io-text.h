@@ -4,6 +4,9 @@
 #define WHITE_TEXT 0x0f
 #define RED_TEXT 0xf4
 
+#define SCREEN_CTRL 0x3d4
+#define SCREEN_DATA 0x3d5
+
 void AMPEREK_TEXT_MODE_CLEAR();
 void AMPEREK_PRINT(char* string, int col, int row, char attrib);
 void AMPEREK_PRINT_AT_CURSOR(char* string, char attrib);

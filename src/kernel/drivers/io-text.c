@@ -9,19 +9,19 @@ void vga_scroll_down();
 void vga_scroll_up();
 
 int AMPEREK_GET_CURSOR_OFFSET(){
-	IO_BYTE_WRITE(IO_WRITE, 14);
-	int offset = IO_BYTE_READ(IO_READ) << 8;
-	IO_BYTE_WRITE(IO_WRITE, 15);
-	offset += IO_BYTE_READ(IO_READ);
+	IO_BYTE_WRITE(SCREEN_CTRL, 14);
+	int offset = IO_BYTE_READ(SCREEN_DATA) << 8;
+	IO_BYTE_WRITE(SCREEN_CTRL, 15);
+	offset += IO_BYTE_READ(SCREEN_DATA);
 	return offset * 2;
 }
 
 void AMPEREK_SET_CURSOR_OFFSET(int offset){
     offset /= 2;
-    IO_BYTE_WRITE(IO_WRITE, 14);
-    IO_BYTE_WRITE(IO_READ, (unsigned char)(offset >> 8));
-    IO_BYTE_WRITE(IO_WRITE, 15);
-    IO_BYTE_WRITE(IO_READ, (unsigned char)(offset & 0xff));
+    IO_BYTE_WRITE(SCREEN_CTRL, 14);
+    IO_BYTE_WRITE(SCREEN_DATA, (unsigned char)(offset >> 8));
+    IO_BYTE_WRITE(SCREEN_CTRL, 15);
+    IO_BYTE_WRITE(SCREEN_DATA, (unsigned char)(offset & 0xff));
 }
 
 void AMPEREK_TEXT_MODE_CLEAR(){
@@ -100,7 +100,7 @@ void vga_scroll_down(){
 	}
 	char* last_line = (char*)vga_offset(0, MAX_ROW - 1) + VGA_MEM_ADDR;
 	for(int i = 0; i < MAX_COL * 2; i++){
-		last_line[i] = ' ';
+		last_line[i] = 0;
 	}
 }
 

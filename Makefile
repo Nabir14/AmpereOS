@@ -1,4 +1,4 @@
-all: cc-compile-bootloader cc-compile-kernel build-image run
+all: clean cc-compile-bootloader cc-compile-kernel build-image run
 cc-compile-bootloader:
 	nasm -fbin src/bootloader/bootloader.asm -o bootloader.bin -I src/bootloader/
 cc-compile-kernel:
