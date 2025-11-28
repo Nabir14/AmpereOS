@@ -1,1 +1,3 @@
 scripts/cross-compiler/*
+*.bin
+*.o
