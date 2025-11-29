@@ -96,7 +96,7 @@ int vga_col(int offset){
 
 void vga_scroll_down(){
 	for(int i = 1; i < MAX_ROW; i++){
-		mcopy((char*)vga_offset(0, i) + VGA_MEM_ADDR, (char*)vga_offset(0, i-1) + VGA_MEM_ADDR, MAX_COL * 2);
+		mcopy((char*)vga_offset(0, i+1) + VGA_MEM_ADDR, (char*)vga_offset(0, i) + VGA_MEM_ADDR, MAX_COL * 2);
 	}
 	char* last_line = (char*)vga_offset(0, MAX_ROW - 1) + VGA_MEM_ADDR;
 	for(int i = 0; i < MAX_COL * 2; i++){
