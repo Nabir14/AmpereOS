@@ -1,14 +1,5 @@
-#include "drivers/io-ports.h"
-#include "drivers/io-text.h"
-
-void AMPEREK_INIT(){
-	AMPEREK_TEXT_MODE_CLEAR();
-	AMPEREK_PRINT("AmpereOS", 0, 0, WHITE_TEXT);
-	AMPEREK_PRINT_AT_CURSOR("\n", WHITE_TEXT);
-	AMPEREK_PRINT_AT_CURSOR("[$]:", WHITE_TEXT);
-}
-
-void AMPEREK_MAIN(){
-	AMPEREK_INIT();
-	return;
+void AMPEREK_MAIN() {
+	unsigned char* vga = (unsigned char*) 0xb8000;
+	vga[0] = 'X';
+	vga[1] = 0x0F;
 }

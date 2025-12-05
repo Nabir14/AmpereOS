@@ -1,0 +1,4 @@
+menuentry "AmpereOS" {
+	multiboot /boot/kernel.elf
+	boot
+}

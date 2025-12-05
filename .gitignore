@@ -1,3 +1,5 @@
-scripts/cross-compiler/*
+cross-compiler
+build
 *.bin
+*.iso
 *.o

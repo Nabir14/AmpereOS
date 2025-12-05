@@ -1,4 +1,15 @@
-[bits 32]
-[extern AMPEREK_MAIN]
-call AMPEREK_MAIN
-jmp $
+global AMPEREK_LOAD
+extern AMPEREK_MAIN
+
+AMPEREK_STACK_SIZE equ 0x4096
+
+section .bss
+align 4
+
+AMPEREK_LOAD:
+	; Setup Stack
+	resb AMPEREK_STACK_SIZE
+	mov esp, AMPEREK_LOAD + AMPEREK_STACK_SIZE
+
+	; Call Main
+	call AMPEREK_MAIN

@@ -8,12 +8,12 @@ sudo dnf install texinfo
 sudo dnf install isl-devel
 sudo dnf install gawk
 
-export PREFIX=$HOME/code/AmpereOS/scripts/cross-compiler
+export PREFIX=$HOME/code/AmpereOS/cross-compiler
 export TARGET=i386-elf
 export PATH="$PREFIX/bin:$PATH"
 
-mkdir cross-compiler
-cd cross-compiler
+mkdir ../cross-compiler
+cd ../cross-compiler
 curl -O https://ftp.gnu.org/gnu/binutils/binutils-2.45.tar.gz
 tar xf binutils-2.45.tar.gz
 rm -rf binutils-2.45.tar.gz
