@@ -8,7 +8,7 @@ void print(const pSTRING string, BYTE color)
 
 	for(WORD i = 0; i < pstring_len(string); i++)
 	{
-		VGA[0] = string[i];
-		VGA[0] = color;
+		VGA[i * 2] = string[i];
+		VGA[i * 2 + 1] = color;
 	}
 }

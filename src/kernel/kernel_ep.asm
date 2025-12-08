@@ -3,7 +3,7 @@ extern AMPEREK_MAIN
 
 AMPEREK_STACK_SIZE equ 0x8192
 
-section .text:
+section .text
 align 4
 
 AMPEREK_EP:
@@ -11,7 +11,7 @@ AMPEREK_EP:
 	call AMPEREK_MAIN
 	hlt
 
-section .bss:
+section .bss
 align 4
 
 AMPEREK_STACK:
