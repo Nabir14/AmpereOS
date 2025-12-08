@@ -3,6 +3,8 @@
 
 #include "../extras/types.h"
 
-void print(const pSTRING string, BYTE color);
+
+void print(const pSTRING string, BYTE text_color, BYTE bg_color);
+void print_at_offset(const pSTRING string, BYTE text_color, BYTE bg_color, WORD col, WORD row);
 
 #endif
