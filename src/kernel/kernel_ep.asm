@@ -1,15 +1,18 @@
-global AMPEREK_LOAD
+global AMPEREK_EP
 extern AMPEREK_MAIN
 
-AMPEREK_STACK_SIZE equ 0x4096
+AMPEREK_STACK_SIZE equ 0x8192
 
-section .bss
+section .text:
 align 4
 
-AMPEREK_LOAD:
-	; Setup Stack
-	resb AMPEREK_STACK_SIZE
-	mov esp, AMPEREK_LOAD + AMPEREK_STACK_SIZE
-
-	; Call Main
+AMPEREK_EP:
+	mov esp, AMPEREK_STACK + AMPEREK_STACK_SIZE
 	call AMPEREK_MAIN
+	hlt
+
+section .bss:
+align 4
+
+AMPEREK_STACK:
+	resb AMPEREK_STACK_SIZE

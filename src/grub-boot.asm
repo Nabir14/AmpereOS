@@ -1,6 +1,6 @@
-global boot_kernel
+global boot
 
-extern AMPEREK_LOAD
+extern AMPEREK_EP
 
 GRUB_MAGIC_NUMBER equ 0x1BADB002
 FLAGS equ 0x0
@@ -12,5 +12,5 @@ align 4
         dd FLAGS
         dd CHECKSUM
 
-boot_kernel:
-	call AMPEREK_LOAD
+boot:
+	call AMPEREK_EP
