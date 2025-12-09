@@ -1,5 +1,8 @@
+# Folders To Ignore
 cross-compiler
 build
+
+# Files To Ignore
 *.bin
 *.iso
 *.o

@@ -1,13 +1,3 @@
-sudo dnf install gcc gcc-c++ make
-sudo dnf install bison
-sudo dnf install flex
-sudo dnf install gmp-devel
-sudo dnf install libmpc-devel
-sudo dnf install mpfr-devel
-sudo dnf install texinfo
-sudo dnf install isl-devel
-sudo dnf install gawk
-
 export PREFIX=$HOME/code/AmpereOS/cross-compiler
 export TARGET=i386-elf
 export PATH="$PREFIX/bin:$PATH"
