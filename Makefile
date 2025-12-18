@@ -3,6 +3,9 @@ GCC = "cross-compiler/bin/i386-elf-gcc"
 LD = "cross-compiler/bin/i386-elf-ld"
 
 all: clean build-kernel build-isofs build-iso run
+setup-cross-compiler:
+	chmod +x scripts/cross-compiler.sh
+	./scripts/cross-compiler.sh
 build-kernel:
 	mkdir -p build
 	nasm -f elf32 src/grub-boot.asm -o build/grub-boot.o

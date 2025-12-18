@@ -28,8 +28,7 @@ sudo dnf install gcc gcc-c++ make bison flex libgmp-devel libmpc-devel libmpfr-d
 
 - **2. Setup Cross-Compiler:**
 ```sh
-chmod +x scripts/cross-compiler.sh
-./scripts/cross-compiler.sh
+make setup-cross-compiler
 ```
 
 - **3. Build && Run:**
